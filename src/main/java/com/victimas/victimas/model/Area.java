@@ -28,4 +28,6 @@ public class Area {
 
     @Column(name = "id_Cargos", unique = true, nullable = false)
     private Integer idCargos;
+
+
 }
