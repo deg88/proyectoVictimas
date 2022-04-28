@@ -42,4 +42,10 @@ public class Victima {
 
     @Column(name = "id_usuario", nullable = false)
     private Integer idUsuario;
+
+
+
+
+
+
 }
