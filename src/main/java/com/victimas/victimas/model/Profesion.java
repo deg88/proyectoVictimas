@@ -1,30 +1,26 @@
 package com.victimas.victimas.model;
 
+
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
-import java.util.List;
 
 @Entity()
-@Table(name = "tipo_identificacion")
+@Table(name = "profesiones")
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-
-public class TipoIdentificacion {
+public class Profesion {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id_tipo", unique = true, nullable = false)
-    private Integer idTipo;
+    @Column(name = "id_profesion", nullable = false)
+    private Integer idProfesion;
 
-    @Column(name = "tipo", unique = true, nullable = false)
-    private String tipo;
-
-
-
+    @Column(name = "nombre_profesion", nullable = false)
+    private String nombreProfesion;
 }
