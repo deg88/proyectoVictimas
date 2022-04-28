@@ -44,4 +44,8 @@ public class Funcionario {
 
     @Column(name = "id_tipo", unique = true, nullable = false)
     private Integer idTipo;
+
+    @ManyToOne()
+    @JoinColumn(name="id_profesion", nullable = false)
+    private Profesion profesion;
 }

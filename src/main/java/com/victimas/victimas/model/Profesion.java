@@ -7,6 +7,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity()
 @Table(name = "profesiones")
@@ -23,4 +24,7 @@ public class Profesion {
 
     @Column(name = "nombre_profesion", nullable = false)
     private String nombreProfesion;
+
+    @OneToMany(mappedBy = "profesion")
+    private List<Funcionario> funcionarios ;
 }

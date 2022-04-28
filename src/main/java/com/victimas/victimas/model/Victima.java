@@ -40,10 +40,12 @@ public class Victima {
     @Column(name = "id_victima", nullable = false)
     private Date fechaNacimiento;
 
-    @Column(name = "id_usuario", nullable = false)
-    private Integer idUsuario;
+    @Column(name = "id_usu", nullable = false)
+    private Integer idUsu;
 
-
+    @ManyToOne()
+    @JoinColumn(name="id_usuario", nullable = false)
+    private Usuario usuario;
 
 
 

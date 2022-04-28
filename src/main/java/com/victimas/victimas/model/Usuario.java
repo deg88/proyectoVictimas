@@ -36,6 +36,9 @@ public class Usuario {
     @JoinColumn(name="id_rol", nullable = false)
     private Rol rol;
 
+    @OneToMany(mappedBy = "usuario")
+    private List<Victima> victimas;
+
 
 
 }
