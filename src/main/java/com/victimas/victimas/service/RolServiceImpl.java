@@ -35,8 +35,7 @@ public class RolServiceImpl implements RolService{
     public List<RolDTO> getAllRols() {
         return rolRepository.findAll()
                 .stream()
-                .map(rol -> {
-                    return new RolDTO(rol.getIdRol(),rol.getNombreRol(), rol.getDescripcion());})
+                .map(rol -> new RolDTO(rol.getIdRol(),rol.getNombreRol(), rol.getDescripcion()))
                 .collect(Collectors.toList());
     }
 
