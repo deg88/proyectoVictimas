@@ -9,6 +9,7 @@ import com.victimas.victimas.repository.RolRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class RolServiceImpl implements RolService{
@@ -32,11 +33,21 @@ public class RolServiceImpl implements RolService{
 
     @Override
     public List<RolDTO> getAllRols() {
-        return null;
+        return rolRepository.findAll()
+                .stream()
+                .map(rol -> {
+                    return new RolDTO(rol.getIdRol(),rol.getNombreRol(), rol.getDescripcion());})
+                .collect(Collectors.toList());
     }
 
     @Override
     public RolDTO createRol(RolDTOReq rol) {
+
+        var n = rolRepository.findRolByNombreRol(rol.getNombreRol());
+
+        if(n.isPresent()){
+            throw new ResourceNotFountException("El rol con nombre " + rol.getNombreRol() + " ya existe y no puede ser creado nuevamente.");
+        }
 
         Rol saveRol = rolRepository.save(new Rol(rol.getNombreRol(), rol.getDescripcion()));
 

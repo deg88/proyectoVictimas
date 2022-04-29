@@ -54,4 +54,11 @@ public class ApiExceptionHandler {
         return new ResponseEntity<>(errorDTO, HttpStatus.BAD_REQUEST);
     }
 
+    @ExceptionHandler(ResourceAlreadyExists.class)
+    public ResponseEntity<ErrorDTO> resourceAlreadyExist (ResourceAlreadyExists e){
+
+        ErrorDTO error = new ErrorDTO("Resource Already Exception", e.getMessage());
+
+        return new ResponseEntity<>(error, HttpStatus.BAD_REQUEST);
+    }
 }

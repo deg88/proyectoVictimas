@@ -9,6 +9,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import java.util.List;
 
 @RestController
 @RequestMapping("/api/victimas/rol")
@@ -29,4 +30,10 @@ public class RolController {
     ResponseEntity<RolDTO> postRol(@Valid @RequestBody RolDTOReq rolDTO){
         return new ResponseEntity<>(rolService.createRol(rolDTO), HttpStatus.CREATED);
     }
+
+    @GetMapping()
+    ResponseEntity<List<RolDTO>> getAllRoles(){
+        return ResponseEntity.ok(rolService.getAllRols());
+    }
+
 }
