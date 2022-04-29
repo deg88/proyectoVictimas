@@ -39,6 +39,7 @@ public class Usuario {
     @OneToMany(mappedBy = "usuario")
     private List<Victima> victimas;
 
-
+    @OneToMany(mappedBy = "usuario")
+    private List<Funcionario> funcionarios ;
 
 }

@@ -48,4 +48,12 @@ public class Funcionario {
     @ManyToOne()
     @JoinColumn(name="id_profesion", nullable = false)
     private Profesion profesion;
+
+    @ManyToOne()
+    @JoinColumn(name="id_cargo", nullable = false)
+    private Cargo cargo;
+
+    @ManyToOne()
+    @JoinColumn(name="id_usuario", nullable = false)
+    private Usuario usuario;
 }

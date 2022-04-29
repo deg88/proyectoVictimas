@@ -27,5 +27,6 @@ public class Cargo {
     @Column(name = "salario", nullable = false)
     private Integer salario;
 
-
+    @OneToMany(mappedBy = "cargo")
+    private List<Funcionario> funcionarios ;
 }
