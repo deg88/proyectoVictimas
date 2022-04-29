@@ -24,11 +24,13 @@ public class Cita {
     @Column(name = "fecha", unique = true, nullable = false)
     private Date fecha;
 
-    @Column(name = "funcionario", unique = true, nullable = false)
-    private Integer funcionario;
+    @ManyToOne()
+    @JoinColumn(name="id_funcionario", nullable = false)
+    private Funcionario funcionario;
 
-    @Column(name = "id_Victima", unique = true, nullable = false)
-    private Integer idVictima;
+    @ManyToOne()
+    @JoinColumn(name="id_victima", nullable = false)
+    private Victima victima;
 
 
 }

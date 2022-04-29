@@ -26,8 +26,8 @@ public class Area {
     @Column(name = "descripcion", unique = true, nullable = false)
     private String descripcion;
 
-    @Column(name = "id_Cargos", unique = true, nullable = false)
-    private Integer idCargos;
-
+    @ManyToOne()
+    @JoinColumn(name="id_cargo", nullable = false)
+    private Cargo cargo;
 
 }

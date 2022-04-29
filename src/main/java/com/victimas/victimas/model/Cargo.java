@@ -29,4 +29,7 @@ public class Cargo {
 
     @OneToMany(mappedBy = "cargo")
     private List<Funcionario> funcionarios ;
+
+    @OneToMany(mappedBy = "cargo")
+    private List<Area> areas ;
 }

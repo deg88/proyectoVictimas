@@ -25,6 +25,11 @@ public class TipoIdentificacion {
     @Column(name = "tipo", unique = true, nullable = false)
     private String tipo;
 
+    @OneToMany(mappedBy = "tipoIdentificacion")
+    private List<Victima> victimas ;
+
+    @OneToMany(mappedBy = "tipoIdentificacion")
+    private List<Funcionario> funcionarios ;
 
 
 }

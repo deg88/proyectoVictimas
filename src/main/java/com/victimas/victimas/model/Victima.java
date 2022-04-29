@@ -8,6 +8,7 @@ import lombok.Setter;
 import javax.persistence.*;
 import java.text.DateFormat;
 import java.util.Date;
+import java.util.List;
 
 @Entity()
 @Table(name = "victimas")
@@ -22,9 +23,6 @@ public class Victima {
     @Column(name = "id_identificacion", unique = true, nullable = false)
     private Integer identificacion;
 
-    @Column(name = "id_tipo", unique = true, nullable = false)
-    private Integer idTipo;
-
     @Column(name = "nombres", nullable = false)
     private  String nombres;
 
@@ -37,17 +35,18 @@ public class Victima {
     @Column(name = "telefono", unique = true, nullable = false)
     private String telefono;
 
-    @Column(name = "id_victima", nullable = false)
+    @Column(name = "fecha_nacimiento", nullable = false)
     private Date fechaNacimiento;
-
-    @Column(name = "id_usu", nullable = false)
-    private Integer idUsu;
 
     @ManyToOne()
     @JoinColumn(name="id_usuario", nullable = false)
     private Usuario usuario;
 
+    @ManyToOne()
+    @JoinColumn(name="id_tipo_identificacion", nullable = false)
+    private TipoIdentificacion tipoIdentificacion;
 
-
+    @OneToMany(mappedBy = "victima")
+    private List<Cita> citas ;
 
 }

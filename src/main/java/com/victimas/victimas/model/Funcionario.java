@@ -7,6 +7,7 @@ import lombok.Setter;
 
 import javax.persistence.*;
 import java.util.Date;
+import java.util.List;
 
 @Entity()
 @Table(name = "funcionarios")
@@ -33,18 +34,6 @@ public class Funcionario {
     @Column(name = "fecha_nacimiento", unique = true, nullable = false)
     private Date fechaNacimiento;
 
-    @Column(name = "id_profeciones", unique = true, nullable = false)
-    private Integer idProfeciones;
-
-    @Column(name = "id_cargos", unique = true, nullable = false)
-    private Integer idCargos;
-
-    @Column(name = "id_usuarios", unique = true, nullable = false)
-    private  Integer idUsuarios;
-
-    @Column(name = "id_tipo", unique = true, nullable = false)
-    private Integer idTipo;
-
     @ManyToOne()
     @JoinColumn(name="id_profesion", nullable = false)
     private Profesion profesion;
@@ -56,4 +45,11 @@ public class Funcionario {
     @ManyToOne()
     @JoinColumn(name="id_usuario", nullable = false)
     private Usuario usuario;
+
+    @ManyToOne()
+    @JoinColumn(name="id_tipo_identificacion", nullable = false)
+    private TipoIdentificacion tipoIdentificacion;
+
+    @OneToMany(mappedBy = "funcionario")
+    private List<Cita> citas ;
 }
