@@ -4,6 +4,7 @@ import lombok.*;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
+import java.util.List;
 
 
 @Entity()
@@ -34,5 +35,11 @@ public class Usuario {
     @ManyToOne()
     @JoinColumn(name="id_rol", nullable = false)
     private Rol rol;
+
+    @OneToMany(mappedBy = "usuario")
+    private List<Victima> victimas;
+
+    @OneToMany(mappedBy = "usuario")
+    private List<Funcionario> funcionarios ;
 
 }
