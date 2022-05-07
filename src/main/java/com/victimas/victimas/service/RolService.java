@@ -2,6 +2,7 @@ package com.victimas.victimas.service;
 
 
 import com.victimas.victimas.dto.request.RolDTOReq;
+import com.victimas.victimas.dto.request.RolDTOUpdate;
 import com.victimas.victimas.dto.response.RolDTO;
 import com.victimas.victimas.dto.response.RolDTOSinID;
 
@@ -15,7 +16,7 @@ public interface RolService {
 
     RolDTO createRol(RolDTOReq rol);
 
-    RolDTO deleteRolById(int idRol);
+    void deleteRolById(int idRol);
 
-    RolDTO updateRol(RolDTOReq rol);
+    RolDTO updateRol(RolDTOUpdate rol);
 }

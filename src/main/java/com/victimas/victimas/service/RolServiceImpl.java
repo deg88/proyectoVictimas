@@ -1,6 +1,7 @@
 package com.victimas.victimas.service;
 
 import com.victimas.victimas.dto.request.RolDTOReq;
+import com.victimas.victimas.dto.request.RolDTOUpdate;
 import com.victimas.victimas.dto.response.RolDTO;
 import com.victimas.victimas.dto.response.RolDTOSinID;
 import com.victimas.victimas.exception.ResourceNotFountException;
@@ -9,6 +10,8 @@ import com.victimas.victimas.repository.RolRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Objects;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
@@ -42,9 +45,9 @@ public class RolServiceImpl implements RolService{
     @Override
     public RolDTO createRol(RolDTOReq rol) {
 
-        var n = rolRepository.findRolByNombreRol(rol.getNombreRol());
+        Optional<Rol> rolExistente = rolRepository.findRolByNombreRol(rol.getNombreRol());
 
-        if(n.isPresent()){
+        if(rolExistente.isPresent()){
             throw new ResourceNotFountException("El rol con nombre " + rol.getNombreRol() + " ya existe y no puede ser creado nuevamente.");
         }
 
@@ -54,12 +57,30 @@ public class RolServiceImpl implements RolService{
     }
 
     @Override
-    public RolDTO deleteRolById(int idRol) {
-        return null;
+    public void deleteRolById(int idRol) {
+
+        Rol rol = rolRepository.findById(idRol)
+                .orElseThrow(() -> new ResourceNotFountException("El rol con id: " + idRol + " no existe."));
+
+        rolRepository.deleteById(idRol);
     }
 
     @Override
-    public RolDTO updateRol(RolDTOReq rol) {
-        return null;
+    public RolDTO updateRol(RolDTOUpdate rol) {
+
+        Rol rolExistente = rolRepository.findById(rol.getIdRol())
+                .orElseThrow( () -> new ResourceNotFountException("El rol con id: " + rol.getIdRol() + " no existe." ));
+
+        if(Objects.nonNull(rol.getNombreRol())){
+            rolExistente.setNombreRol(rol.getNombreRol());
+        }
+
+        if(Objects.nonNull(rol.getDescripcion())){
+            rolExistente.setDescripcion(rol.getDescripcion());
+        }
+
+        Rol rolResponse = rolRepository.save(rolExistente);
+
+        return new RolDTO(rolResponse.getIdRol(), rolResponse.getNombreRol(), rolResponse.getDescripcion());
     }
 }
