@@ -19,7 +19,7 @@ public class ErrorDTO {
 
     private String message;
 
-    @JsonInclude
+    @JsonInclude(JsonInclude.Include.NON_NULL)
     private HashMap<String, List<String>> errors;
 
     public ErrorDTO(String code, String message){
