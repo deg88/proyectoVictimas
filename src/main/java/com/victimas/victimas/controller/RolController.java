@@ -1,6 +1,7 @@
 package com.victimas.victimas.controller;
 
 import com.victimas.victimas.dto.request.RolDTOReq;
+import com.victimas.victimas.dto.request.RolDTOUpdate;
 import com.victimas.victimas.dto.response.RolDTO;
 import com.victimas.victimas.dto.response.RolDTOSinID;
 import com.victimas.victimas.service.RolServiceImpl;
@@ -34,6 +35,17 @@ public class RolController {
     @GetMapping()
     ResponseEntity<List<RolDTO>> getAllRoles(){
         return ResponseEntity.ok(rolService.getAllRols());
+    }
+
+    @DeleteMapping("/{id_rol}")
+    ResponseEntity<String> DeleteRolByID(@PathVariable(name = "id_rol") int idRol){
+        rolService.deleteRolById(idRol);
+        return new ResponseEntity<>("Se ha eliminado el rol con id " + idRol, HttpStatus.OK);
+    }
+
+    @PutMapping()
+    ResponseEntity<RolDTO> putRol(@Valid @RequestBody RolDTOUpdate rolDTO){
+        return new ResponseEntity<>(rolService.updateRol(rolDTO), HttpStatus.OK);
     }
 
 }
