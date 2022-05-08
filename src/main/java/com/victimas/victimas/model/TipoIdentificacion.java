@@ -31,5 +31,8 @@ public class TipoIdentificacion {
     @OneToMany(mappedBy = "tipoIdentificacion")
     private List<Funcionario> funcionarios ;
 
+    public TipoIdentificacion (String tipo){
+        this.tipo =tipo;
+    }
 
 }

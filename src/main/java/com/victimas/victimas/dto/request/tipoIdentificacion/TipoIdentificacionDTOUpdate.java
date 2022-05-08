@@ -1,4 +1,4 @@
-package com.victimas.victimas.dto.request;
+package com.victimas.victimas.dto.request.tipoIdentificacion;
 
 import com.fasterxml.jackson.databind.PropertyNamingStrategy;
 import com.fasterxml.jackson.databind.annotation.JsonNaming;
@@ -16,15 +16,13 @@ import javax.validation.constraints.Size;
 @AllArgsConstructor
 @NoArgsConstructor
 @JsonNaming(PropertyNamingStrategy.SnakeCaseStrategy.class)
-public class RolDTOUpdate {
+public class TipoIdentificacionDTOUpdate {
 
-    @Range(min = 1L, message = "Debe ingresar el id_rol del rol que desea actualizar")
-    private int idRol;
+    @Range(min = 1L, message = "Debe ingresar el id_tipo_identificacion del tipo de identificacion que desea actualizar")
+    private int idTipoIdentificacion;
 
-    @Size(min = 5, message = "La longitud mínima del campo nombre_rol es de 5 carácteres")
-    private String nombreRol;
-
-    @Size(min = 5, message = "La longitud mínima del campo descripción es de 5 carácteres")
-    private String descripcion;
-
+    @NotEmpty(message = "El campo tipo no puede estar vacio")
+    @Size(min = 2, message = "La longitud mínima del campo tipo es de 2 carácteres")
+    private String tipo;
+    
 }

@@ -1,12 +1,13 @@
-package com.victimas.victimas.service;
+package com.victimas.victimas.service.rol;
 
-import com.victimas.victimas.dto.request.RolDTOReq;
-import com.victimas.victimas.dto.request.RolDTOUpdate;
-import com.victimas.victimas.dto.response.RolDTO;
-import com.victimas.victimas.dto.response.RolDTOSinID;
+import com.victimas.victimas.dto.request.rol.RolDTOReq;
+import com.victimas.victimas.dto.request.rol.RolDTOUpdate;
+import com.victimas.victimas.dto.response.rol.RolDTO;
+import com.victimas.victimas.dto.response.rol.RolDTOSinID;
 import com.victimas.victimas.exception.ResourceNotFountException;
 import com.victimas.victimas.model.Rol;
 import com.victimas.victimas.repository.RolRepository;
+import com.victimas.victimas.service.rol.RolService;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -15,7 +16,7 @@ import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
-public class RolServiceImpl implements RolService{
+public class RolServiceImpl implements RolService {
 
     private final RolRepository rolRepository;
 

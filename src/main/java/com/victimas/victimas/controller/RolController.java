@@ -1,10 +1,10 @@
 package com.victimas.victimas.controller;
 
-import com.victimas.victimas.dto.request.RolDTOReq;
-import com.victimas.victimas.dto.request.RolDTOUpdate;
-import com.victimas.victimas.dto.response.RolDTO;
-import com.victimas.victimas.dto.response.RolDTOSinID;
-import com.victimas.victimas.service.RolServiceImpl;
+import com.victimas.victimas.dto.request.rol.RolDTOReq;
+import com.victimas.victimas.dto.request.rol.RolDTOUpdate;
+import com.victimas.victimas.dto.response.rol.RolDTO;
+import com.victimas.victimas.dto.response.rol.RolDTOSinID;
+import com.victimas.victimas.service.rol.RolServiceImpl;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
