@@ -20,7 +20,7 @@ public class Usuario {
     @Column(name = "id_usuario", unique = true, nullable = false)
     private Integer idUsuario;
 
-    @Column(name = "username", nullable = false)
+    @Column(name = "username", nullable = false, unique = true)
     private String username;
 
     @Column(name = "password", nullable = false, unique = true)
@@ -28,6 +28,9 @@ public class Usuario {
 
     @Column(name = "fecha_registro", columnDefinition = "TIMESTAMP")
     private LocalDateTime fechaRegistro;
+
+    @Column(name = "ultima_actualizacion", columnDefinition = "TIMESTAMP")
+    private LocalDateTime ultimaActualizacion;
 
     @Column(name = "activo", nullable = false)
     private Boolean activo;
@@ -42,4 +45,12 @@ public class Usuario {
     @OneToMany(mappedBy = "usuario")
     private List<Funcionario> funcionarios ;
 
+    public Usuario(String username, String password, LocalDateTime fechaRegistro, LocalDateTime ultimaActualizacion, Boolean activo, Rol rol) {
+        this.username = username;
+        this.password = password;
+        this.fechaRegistro = fechaRegistro;
+        this.ultimaActualizacion = ultimaActualizacion;
+        this.activo = activo;
+        this.rol = rol;
+    }
 }

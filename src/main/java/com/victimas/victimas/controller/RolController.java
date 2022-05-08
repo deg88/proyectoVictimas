@@ -47,5 +47,4 @@ public class RolController {
     ResponseEntity<RolDTO> putRol(@Valid @RequestBody RolDTOUpdate rolDTO){
         return new ResponseEntity<>(rolService.updateRol(rolDTO), HttpStatus.OK);
     }
-
 }
