@@ -1,6 +1,5 @@
-package com.victimas.victimas.dto.response;
+package com.victimas.victimas.dto.response.tipoIdentificacion;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.databind.PropertyNamingStrategy;
 import com.fasterxml.jackson.databind.annotation.JsonNaming;
@@ -14,18 +13,14 @@ import lombok.Setter;
 @AllArgsConstructor
 @NoArgsConstructor
 @JsonNaming(PropertyNamingStrategy.SnakeCaseStrategy.class)
-public class RolDTO {
+public class TipoIdentificacionDTO {
 
     @JsonInclude(JsonInclude.Include.NON_NULL)
-    private int idRol;
+    private Integer idTipoIdentificacion;
 
-    private String nombreRol;
+    private String tipo;
 
-    private String descripcion;
-
-    public RolDTO (String nombreRol, String descripcion){
-        this.nombreRol = nombreRol;
-        this.descripcion = descripcion;
+    public TipoIdentificacionDTO(String tipo) {
+        this.tipo = tipo;
     }
-
 }

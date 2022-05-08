@@ -1,4 +1,4 @@
-package com.victimas.victimas.dto.response;
+package com.victimas.victimas.dto.response.rol;
 
 import com.fasterxml.jackson.databind.PropertyNamingStrategy;
 import com.fasterxml.jackson.databind.annotation.JsonNaming;
